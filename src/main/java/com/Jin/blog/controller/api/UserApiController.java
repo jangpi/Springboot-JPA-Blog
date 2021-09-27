@@ -2,13 +2,11 @@ package com.Jin.blog.controller.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.Jin.blog.dto.ResponseDto;
-import com.Jin.blog.model.RoleType;
 import com.Jin.blog.model.User;
 import com.Jin.blog.service.UserService;
 

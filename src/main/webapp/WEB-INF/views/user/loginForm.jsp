@@ -8,11 +8,11 @@
 	<form action="/auth/loginProc" method="post">
 		<div class="form-group">
 			<label for="username">username:</label> 
-			<input type="username" name="username" class="form-control" placeholder="아이디를 입력해주세요." id="username">
+			<input type="username" name="username" class="form-control" placeholder="Enter Username" id="username">
 		</div>
 		<div class="form-group">
 			<label for="password">Password:</label> 
-			<input type="password" name="password"class="form-control" placeholder="비밀번호를 입력해주세요." id="password">
+			<input type="password" name="password"class="form-control" placeholder="Enter password" id="password">
 		</div>
 
 		<button id="btn-login" class="btn btn-primary">로그인</button>

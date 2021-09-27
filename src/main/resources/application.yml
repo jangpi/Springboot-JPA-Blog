@@ -21,7 +21,7 @@ spring:
   jpa:
     open-in-view: true
     hibernate:
-      ddl-auto: create # 자동으로 테이블 생성, (update), (delete)도 가능
+      ddl-auto: update # 자동으로 테이블 생성, (update), (delete)도 가능
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl #Entity 를 만들때 변수명 그대로 넣어준다.
       use-new-id-generator-mappings: false #JPA의 기본적인 넘버링 전략을 따라가지 않겠다.

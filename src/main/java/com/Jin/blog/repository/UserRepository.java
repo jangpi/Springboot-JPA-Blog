@@ -1,5 +1,7 @@
 package com.Jin.blog.repository;
 
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -9,9 +11,8 @@ import com.Jin.blog.model.User;
 // 자동 Bean 등록
 // @Repository 생략 가능
 public interface UserRepository extends JpaRepository<User, Integer>{
-	
-	
-	
+	// Select * FROM user WHERE username = 1?;
+	Optional<User> findByUsername(String username);
 }
 
 

@@ -39,7 +39,7 @@ public class Board {
 	@Lob // 대용량 데이터
 	private String content;
 	
-	@ColumnDefault("0") // 조회수 컬럼 
+	// 조회수 컬럼 
 	private int count;
 	
 	@ManyToOne(fetch = FetchType.EAGER) // fetch : 무조건 들고와야 하기 때문에 패치 전략이 필요하다.

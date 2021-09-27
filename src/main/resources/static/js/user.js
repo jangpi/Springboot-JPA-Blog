@@ -27,7 +27,6 @@ let index = {
 			
 		}).done(function(resp){
 			alert("회원가입이 완료되었습니다.");
-			console.log(resp);
 			location.href="/";
 			
 		}).fail(function(error){
