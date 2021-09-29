@@ -25,7 +25,7 @@ spring:
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl #Entity 를 만들때 변수명 그대로 넣어준다.
       use-new-id-generator-mappings: false #JPA의 기본적인 넘버링 전략을 따라가지 않겠다.
-    show-sql: true # 콘솔창이 보인다.
+    #show-sql: true # 콘솔창이 보인다.
     properties:
       hibernate.format_sql: true # 예쁘게 정렬되어 나온다.
 
