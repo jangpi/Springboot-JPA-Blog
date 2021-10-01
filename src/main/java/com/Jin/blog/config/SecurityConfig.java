@@ -3,6 +3,7 @@ package com.Jin.blog.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -21,6 +22,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private PrincipalDetailServce princlpalDetailService;
 	
+	@Bean	// Bean으로 등록시 어디서든 DI 에서 사용 가능
+	@Override
+	public AuthenticationManager authenticationManagerBean() throws Exception {
+		return super.authenticationManagerBean();
+	}
+
 	@Bean // IoC가 된다.
 	public BCryptPasswordEncoder encodePWD() {
 		return new BCryptPasswordEncoder();
