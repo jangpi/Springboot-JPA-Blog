@@ -3,6 +3,7 @@ package com.Jin.blog.model;
 import java.sql.Timestamp;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -13,9 +14,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -47,10 +51,12 @@ public class Board {
 	@JoinColumn(name = "userId") // FK(외레키) 등록을 해준다. DB는 오브젝트를 저장할 수 없다.
 	private User user;
 	
-	@OneToMany (mappedBy = "board", fetch = FetchType.EAGER) // 무조건 들고 올 때 EAGER 전략 
+	@OneToMany (mappedBy = "board", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE) // 무조건 들고 올 때 EAGER 전략 
 	// 필요할 때 LAZY 전략을 쓰면 된다.
 	// mappedBy 가 있으면 연관관계의 주인이 아니다. 난 FK가 아닙니다. DB에 컬럼 X
-	private List<Reply> reply;
+	@JsonIgnoreProperties({"board"})	// 무한참조 방지 그럼 reply에 있는 Board 파싱하지 않는다. 변환X
+	@OrderBy("id desc")
+	private List<Reply> replys;
 	
 	@CreationTimestamp // 등록시 날짜, 시간 자동 등록
 	private Timestamp createDate;

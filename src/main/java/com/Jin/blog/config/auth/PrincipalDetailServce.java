@@ -1,7 +1,5 @@
 package com.Jin.blog.config.auth;
 
-import java.nio.file.attribute.UserPrincipal;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
