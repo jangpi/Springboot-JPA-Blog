@@ -1,7 +1,10 @@
 package com.Jin.blog.model;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -40,7 +44,7 @@ public class Reply {
 	@ManyToOne
 	@JoinColumn(name = "userId")
 	private User user;
-	
+
 	@CreationTimestamp // 현재시간 자동 입력
 	private Timestamp createDate;
 
@@ -50,3 +54,4 @@ public class Reply {
 				+ createDate + "]";
 	}
 }
+

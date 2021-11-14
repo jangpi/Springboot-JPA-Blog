@@ -9,8 +9,10 @@
 	<c:forEach var="board" items="${boards.content }">
 		<div class="card m-2">
 			<div class="card-body">
-				<h4 class="card-title">${board.title }</h4>
-				<a href="/board/${board.id }" class="btn btn-primary">상세내용</a>
+				<h5 class="card-title">${board.title }</h5>
+				<a href="/board/${board.id }" class="btn btn-primary">자세히보기</a>
+				<div class="text-right">조회수 ${board.count }</div>
+				<div class="text-right">${board.user.username } | ${board.createDate }</div>
 			</div>
 		</div>
 	</c:forEach>

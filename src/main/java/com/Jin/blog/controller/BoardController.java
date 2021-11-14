@@ -26,12 +26,15 @@ public class BoardController {
 	// model 이란 Request 정보이다.
 	@GetMapping({"","/"})
 	public String index(Model model, @PageableDefault(size =3, sort="id", direction = Sort.Direction.DESC) Pageable pageable) {	
+		
 		model.addAttribute("boards", boardService.글목록(pageable));
 		return "index";		
 	}
 	
 	@GetMapping("/board/{id}")
 	public String findById(@PathVariable int id, Model model) {
+		
+		model.addAttribute("count", boardService.조회수(id));
 		model.addAttribute("board", boardService.글상세보기(id));
 		return "board/detail";
 	}

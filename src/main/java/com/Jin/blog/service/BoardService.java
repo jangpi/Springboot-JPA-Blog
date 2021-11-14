@@ -8,13 +8,13 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.Jin.blog.dto.ReplySaveRequestDto;
+
 import com.Jin.blog.model.Board;
-import com.Jin.blog.model.Reply;
+
 import com.Jin.blog.model.User;
 import com.Jin.blog.repository.BoardRepository;
-import com.Jin.blog.repository.ReplyRepository;
-import com.Jin.blog.repository.UserRepository;
+
+
 
 import lombok.RequiredArgsConstructor;
 
@@ -23,10 +23,10 @@ import lombok.RequiredArgsConstructor;
 public class BoardService {
 	
 	private final BoardRepository boardRepository;
-	private final ReplyRepository replyRepository;
 
 	@Transactional	
 	public void 글쓰기(Board board, User user) {	// title, content
+		
 		board.setCount(0);
 		board.setUser(user);
 		boardRepository.save(board);
@@ -39,6 +39,9 @@ public class BoardService {
 	
 	@Transactional(readOnly = true)	// select만 하는거니까 트랜잭션을 걸어준다.
 	public Board 글상세보기(int id) {
+		
+		boardRepository.count();
+		
 		return boardRepository.findById(id)
 				.orElseThrow(()->{
 					return new IllegalArgumentException("글 상세보기 실패 : 아이디를 찾을 수 없습니다.");
@@ -62,12 +65,9 @@ public class BoardService {
 	}
 	
 	@Transactional
-	public void 댓글달기(ReplySaveRequestDto replySaveRequestDto) {
-		int reply =	replyRepository.mSave(replySaveRequestDto.getUserId(), replySaveRequestDto.getBoardId(), replySaveRequestDto.getContent());
-	}
+    public int 조회수(Integer id) {
+        return boardRepository.조회수(id);
+    }
 	
-	@Transactional
-	public void 댓글삭제(int replyId) {
-		replyRepository.deleteById(replyId);
-	}
+	
 }

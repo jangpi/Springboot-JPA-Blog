@@ -19,6 +19,11 @@
 		<label for="email">Email:</label> 
 		<input type="email" class="form-control" placeholder="이메일을 입력해주세요." id="email">
 	</div>		
+
+	<div class="form-group">
+			<label for="name">name:</label> 
+			<input type="name" class="form-control" placeholder="이름을 입력해주세요." id="name">
+	</div>
 																		
 </form>
 	<button id="btn-save" class="btn btn-primary">회원가입완료</button>

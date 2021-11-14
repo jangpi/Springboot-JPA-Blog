@@ -15,8 +15,8 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
+import javax.persistence.Transient;
 
-import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -44,9 +44,10 @@ public class Board {
 	private String content;
 	
 	// 조회수 컬럼 
-	private int count;
+	@Column(nullable = false)
+	private Integer count;
 	
-	@ManyToOne(fetch = FetchType.EAGER) // fetch : 무조건 들고와야 하기 때문에 패치 전략이 필요하다.
+	@ManyToOne(fetch = FetchType.EAGER) // fetch : 즉시로딩, 무조건 들고와야 하기 때문에 패치 전략이 필요하다.
 	// 한 사람의 유저는 (One), 게시판을 여러 개 작성 가능 하다.(Many)
 	@JoinColumn(name = "userId") // FK(외레키) 등록을 해준다. DB는 오브젝트를 저장할 수 없다.
 	private User user;
@@ -60,4 +61,5 @@ public class Board {
 	
 	@CreationTimestamp // 등록시 날짜, 시간 자동 등록
 	private Timestamp createDate;
+	
 }

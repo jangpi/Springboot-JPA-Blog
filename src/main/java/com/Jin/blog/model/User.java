@@ -10,9 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.DynamicInsert;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -41,6 +39,10 @@ public class User {
 	
 	@Column(nullable = false, length = 50)
 	private String email;
+	
+	@Column(nullable = false, length = 50)
+	private String name;
+	
 	
 	// @ColumnDefault("'user'")
 	 // 컬럼 디폴트 어노테이션 : " ' ' " 문자라고 확인을 해줘야 한다.

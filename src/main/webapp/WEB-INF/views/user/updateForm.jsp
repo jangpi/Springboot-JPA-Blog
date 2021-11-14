@@ -23,6 +23,12 @@
 			<label for="email">Email:</label> 
 			<input type="email" value="${principal.user.email }" class="form-control" placeholder="이메일을 입력해주세요." id="email" readonly="readonly">
 		</div>
+		
+		<div class="form-group">
+			<label for="name">Email:</label> 
+			<input type="text" value="${principal.user.name }" class="form-control" placeholder="이름을 입력해주세요." id="name" readonly="readonly">
+		</div>
+		
 	</form>
 
 	<!-- ajax 버튼이 잘 안먹혔다. 이유는 form 밖에 버튼을 안빼놔서 이기 때문이다. -->
